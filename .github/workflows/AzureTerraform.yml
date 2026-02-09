@@ -57,7 +57,7 @@ jobs:
         run: terraform plan -no-color -input=false
         working-directory: enviroments/dev
      
-  terraform-init-fmt-validate-apply:
+  terraform-init-apply:
     needs: terraform-init-fmt-validate-plan
     runs-on: self-hosted
     steps:
