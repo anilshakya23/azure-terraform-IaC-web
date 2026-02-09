@@ -19,9 +19,10 @@ jobs:
           subscription-id: eac9ee72-3e50-4c23-b8c3-081a1f02b52a
    superLinter:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Super-linter
         uses: super-linter/super-linter@v8.5.0
-        continue-on-error: true
+ 
      
   
