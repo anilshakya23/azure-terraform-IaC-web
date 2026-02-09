@@ -24,5 +24,21 @@ jobs:
       - name: Super-linter
         uses: super-linter/super-linter@v8.5.0
  
+  terraform-init-fmt-validate-plan:
+    runs-on: self-hosted
+    steps:
+    - name: Terraform fmt
+      id: fmt
+      run: terraform fmt -check
+      continue-on-error: true
+    - name: Terraform Init
+      id: init
+      run: terraform init -input=false
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color -input=false
      
   
