@@ -55,17 +55,17 @@ jobs:
         run: terraform plan -no-color -input=false
         working-directory: enviroments/dev
      
-   terraform-init-fmt-validate-apply:
-     needs: terraform-init-fmt-validate-plan
-     runs-on: self-hosted
-     steps:
-       - name: Azure login
-         uses: azure/login@v2
-         with:
-           client-id: e50d63fe-9564-4b3e-a1ab-818ae7b6600f
-           tenant-id: b2726345-22d4-4635-bf9b-fbe39a0215f0
-           subscription-id: eac9ee72-3e50-4c23-b8c3-081a1f02b52a
-       - name: Terraform Plan
-         id: plan
-         run: terraform apply --auto-approve -no-color -input=false
-         working-directory: enviroments/dev       
+  terraform-init-fmt-validate-apply:
+    needs: terraform-init-fmt-validate-plan
+    runs-on: self-hosted
+    steps:
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: e50d63fe-9564-4b3e-a1ab-818ae7b6600f
+          tenant-id: b2726345-22d4-4635-bf9b-fbe39a0215f0
+          subscription-id: eac9ee72-3e50-4c23-b8c3-081a1f02b52a
+      - name: Terraform Plan
+        id: plan
+        run: terraform apply --auto-approve -no-color -input=false
+        working-directory: enviroments/dev       
