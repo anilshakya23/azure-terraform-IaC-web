@@ -25,6 +25,7 @@ jobs:
         uses: super-linter/super-linter@v8.5.0
  
   terraform-init-fmt-validate-plan:
+    needs: checkout
     runs-on: self-hosted
     steps:
     - name: Terraform fmt
