@@ -18,7 +18,7 @@ jobs:
           tenant-id: b2726345-22d4-4635-bf9b-fbe39a0215f0
           subscription-id: eac9ee72-3e50-4c23-b8c3-081a1f02b52a
   linting: 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Super-linter
         uses: super-linter/super-linter@v8.5.0  
