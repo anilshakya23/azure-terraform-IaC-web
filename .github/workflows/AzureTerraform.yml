@@ -43,23 +43,23 @@ jobs:
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
-        working-directory: enviroments/dev
+        working-directory: environment/dev
         continue-on-error: true
         
       - name: Terraform Init
         id: init
         run: terraform init -upgrade -input=false
-        working-directory: enviroments/dev
+        working-directory: environment/dev
         
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
-        working-directory: enviroments/dev
+        working-directory: environment/dev
         
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color -input=false
-        working-directory: enviroments/dev
+        working-directory: environment/dev
      
   terraform-init-apply:
     environment: dev
@@ -77,5 +77,5 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: terraform apply --auto-approve -no-color -input=false
-        working-directory: enviroments/dev 
+        working-directory: environment/dev 
         
