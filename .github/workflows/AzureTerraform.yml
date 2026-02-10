@@ -7,6 +7,7 @@ permissions:
 run-name: azure-terraform-infra-pipeline
 jobs:
   checkout:
+    environment: dev
     runs-on: self-hosted
     steps:
       - name: Checkout
@@ -27,6 +28,7 @@ jobs:
         uses: super-linter/super-linter@v8.5.0
  
   terraform-init-fmt-validate-plan:
+    environment: dev
     needs: checkout
     runs-on: self-hosted
     steps:
@@ -60,6 +62,7 @@ jobs:
         working-directory: enviroments/dev
      
   terraform-init-apply:
+    environment: dev
     needs: terraform-init-fmt-validate-plan
     runs-on: self-hosted
     steps:
